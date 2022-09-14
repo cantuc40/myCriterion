@@ -15,6 +15,11 @@ class Film(models.Model):
     mpaa_rating = models.CharField(max_length=5, default='')
     box_cover_url = models.CharField(max_length=2000, default='')
 
+    #Represents which user owns the film
+    owner = models.ForeignKey('auth.User', related_name='films', on_delete=models.CASCADE)
+    highlighted = models.TextField()
+
+
     class Meta:
         ordering = ['created']
 
